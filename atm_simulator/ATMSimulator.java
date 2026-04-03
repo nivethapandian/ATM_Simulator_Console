@@ -73,7 +73,7 @@ public class ATMSimulator {
             	withdraw();
             	break;
             case 4:
-//            	transactionHistory();
+            	transactionHistory();
             	break;
             case 5:
             	System.out.println("\n Logged out successfully!");
@@ -146,6 +146,26 @@ public class ATMSimulator {
 	            System.out.println(" " + e.getMessage());
 	            System.out.println("  Available Balance: " + NumberFormat.getCurrencyInstance().format(b.getBalance()));
 	        }
+		}
+		
+		private static void transactionHistory() {
+			System.out.println("\n------------------------------");
+	        System.out.println("  [ Transaction History ]");
+	        System.out.println("------------------------------\n");
+	        
+	        if(b.getHistory().isEmpty())
+			{
+				System.out.println("No transactions yet");
+				return;
+			}
+	        
+	        for(String s : b.getHistory()) {
+	        	System.out.println(s);
+	        }
+	        
+	        System.out.println("\nTotal transactions :  " + b.getHistory().size());
+		    System.out.printf("Current balance    : " + NumberFormat.getCurrencyInstance().format(b.getBalance()));
+			
 		}
 
 }

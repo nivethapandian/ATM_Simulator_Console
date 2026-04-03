@@ -15,7 +15,7 @@ public class BankAccount {
 		this.pin = pin;
 		this.balance = balance;
 		this.transactions = new ArrayList<>();
-		this.transactions.add("Opening Balance: " + NumberFormat.getCurrencyInstance().format(balance));
+		this.transactions.add("Opening Balance    : " + NumberFormat.getCurrencyInstance().format(balance));
 	}
 	
 	public void getDeposit(double amount) throws InvalidAmountException {
@@ -23,7 +23,7 @@ public class BankAccount {
 			throw new InvalidAmountException(" Maximum deposit amount is Rs. 100");
 		}
 		balance += amount;
-		this.transactions.add("Deposited: " + NumberFormat.getCurrencyInstance().format(amount));
+		this.transactions.add("Deposited          : " + NumberFormat.getCurrencyInstance().format(amount));
 	}
 	
 	public void getWithdraw(double amount) throws InsufficientFundsException, InvalidAmountException{
@@ -34,7 +34,7 @@ public class BankAccount {
 			throw new InvalidAmountException(" Maximum withdrawal amount is Rs. 100");
 		}
 		balance -= amount;
-		this.transactions.add("Withdrawn: " + NumberFormat.getCurrencyInstance().format(amount));
+		this.transactions.add("Withdrawn          : " + NumberFormat.getCurrencyInstance().format(amount));
 	}
 	
 	public double getBalance() {
@@ -43,6 +43,10 @@ public class BankAccount {
 	
 	public int getPin() {
 		return pin;
+	}
+	
+	public ArrayList<String> getHistory() {
+		return transactions;
 	}
 	
 	
